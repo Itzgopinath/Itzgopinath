@@ -1,0 +1,25 @@
+#include<stdio.h>
+struct student 
+{
+  char name[50];
+  int roll;
+  int age; 
+  char gender[20];
+  char college[50];
+};
+int main()
+{
+  struct student s1;
+  printf("enter the name of the student:");
+  scanf("%s",s1.name);
+  printf("enter the roll number of the student:");
+  scanf("%d",&s1.roll);
+  printf("enter the age of the student ");
+  scanf("%d",&s1.age);
+  printf("enter the gender of the student ");
+  scanf("%s",&s1.gender);
+  printf("enter the college name:");
+  scanf("%s",&s1.college);
+  printf("name:%s\nroll:%d\nage:%d\ngender:%d\ncollege",s1.name,s1.roll,s1.age,s1.gender,s1.college);
+  return 0;
+}
