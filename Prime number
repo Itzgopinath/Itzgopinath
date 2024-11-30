@@ -1,0 +1,38 @@
+def is_prime(num):
+    """Check if a number is prime."""
+    if num < 2:
+        return False
+    for i in range(2, int(num**0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
+
+def find_primes_in_range(start, end):
+    """Find all prime numbers in a given range."""
+    return [num for num in range(start, end + 1) if is_prime(num)]
+
+def save_to_file(primes, filename="primes.txt"):
+    """Save the list of primes to a file."""
+    with open(filename, "w") as file:
+        for prime in primes:
+            file.write(f"{prime}\n")
+
+def main():
+    print("Find Prime Numbers in a Range")
+    try:
+        start = int(input("Enter the start of the range: "))
+        end = int(input("Enter the end of the range: "))
+        
+        if start > end:
+            print("Invalid range: start should be less than or equal to end.")
+            return
+        
+        primes = find_primes_in_range(start, end)
+        save_to_file(primes)
+        
+        print(f"Prime numbers between {start} and {end} have been saved to 'primes.txt'.")
+    except ValueError:
+        print("Please enter valid integers for the range.")
+
+if __name__ == "__main__":
+    main()
